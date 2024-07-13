@@ -7,7 +7,7 @@
   ],
   "client": [
     "ChellsModMixin",
-    "ClientPlayerEntityMixin"
+    "ClientPlayerMixin"
   ],
   "injectors": {
     "defaultRequire": 1
