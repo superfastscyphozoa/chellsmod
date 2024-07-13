@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.superfastscyphozoa.chellsmod.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+  ],
+  "client": [
+    "ChellsModMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
