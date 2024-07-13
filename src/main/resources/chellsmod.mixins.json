@@ -7,7 +7,7 @@
   ],
   "client": [
     "ChellsModMixin",
-    "ClientPlayerMixin"
+    "client.ClientPlayerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

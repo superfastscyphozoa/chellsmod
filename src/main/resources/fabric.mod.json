@@ -17,6 +17,9 @@
   "entrypoints": {
     "main": [
       "net.superfastscyphozoa.chellsmod.ChellsMod"
+    ],
+    "client": [
+      "net.superfastscyphozoa.chellsmod.client.ChellsModClient"
     ]
   },
   "mixins": [
