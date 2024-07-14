@@ -8,5 +8,6 @@ public class ChellsMod implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+
 	}
 }
