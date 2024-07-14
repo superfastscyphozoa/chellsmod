@@ -17,13 +17,13 @@ public class PlayerMixin {
         float flySpeed = player.abilities.getFlySpeed();
 
         if (player.isSprinting()){
-            player.flyingSpeed = flySpeed * 2.5F;
+            player.flyingSpeed = flySpeed * 2.25F;
         } else {
             player.flyingSpeed = flySpeed * 1.25F;
         }
 
         double yFlySpeed = player.velocityY;
 
-        player.velocityY = yFlySpeed * 1.5;
+        player.velocityY = yFlySpeed * 1.25;
     }
 }
