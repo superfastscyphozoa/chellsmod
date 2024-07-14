@@ -15,7 +15,7 @@ public class ClientPlayerMixin{
     @Inject(method = "tickMovement()V",
             at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/player/HungerManager;getFoodLevel()I",
                     ordinal = 0, shift = At.Shift.AFTER))
-    public void inject(CallbackInfo ci){
+    public void keybindSprint(CallbackInfo ci){
         ClientPlayerEntity player = (ClientPlayerEntity) (Object) this;
 
         boolean notHungry = (float)player.getHungerManager().getFoodLevel() > 6.0F || player.abilities.allowFlying;
@@ -33,7 +33,7 @@ public class ClientPlayerMixin{
 
     @Redirect(method = "tickMovement()V", at = @At(value = "FIELD",
             target = "Lnet/minecraft/entity/player/ClientPlayerEntity;onGround:Z", opcode = 0, ordinal = 0))
-    private boolean inject2(ClientPlayerEntity instance){
+    private boolean sprintWhileAirborne(ClientPlayerEntity instance){
         return true;
     }
 }

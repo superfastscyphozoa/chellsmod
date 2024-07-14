@@ -1,6 +1,5 @@
 package net.superfastscyphozoa.chellsmod.client;
 
-import net.legacyfabric.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.legacyfabric.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.minecraft.client.option.KeyBinding;
 import org.lwjgl.input.Keyboard;

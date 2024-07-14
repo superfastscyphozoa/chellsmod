@@ -4,9 +4,9 @@
   "package": "net.superfastscyphozoa.chellsmod.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "SkeletonMixin"
   ],
   "client": [
-    "ChellsModMixin",
     "client.ClientPlayerMixin"
   ],
   "injectors": {
