@@ -20,14 +20,14 @@ public class ClientPlayerMixin{
 
         boolean notHungry = (float)player.getHungerManager().getFoodLevel() > 6.0F || player.abilities.allowFlying;
 
-        if (ChellsModKeybinds.sprint.wasPressed()){
+        if (ChellsModKeybinds.sprint.pressed){
             if (!player.isSprinting()){
                 if(notHungry && !player.isUsingItem() && !player.hasStatusEffect(StatusEffect.BLINDNESS)){
                     player.setSprinting(true);
                 }
-            } else {
-                player.setSprinting(false);
-            }
+            }// else {
+               // player.setSprinting(false);
+            //}
         }
     }
 
