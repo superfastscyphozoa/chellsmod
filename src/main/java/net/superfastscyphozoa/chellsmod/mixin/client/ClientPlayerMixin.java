@@ -6,6 +6,7 @@ import net.superfastscyphozoa.chellsmod.client.ChellsModKeybinds;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(ClientPlayerEntity.class)
@@ -19,12 +20,20 @@ public class ClientPlayerMixin{
 
         boolean notHungry = (float)player.getHungerManager().getFoodLevel() > 6.0F || player.abilities.allowFlying;
 
-        if (ChellsModKeybinds.sprint.pressed){
-            if (!player.isSprinting() && notHungry && !player.isUsingItem()
-                    && !player.hasStatusEffect(StatusEffect.BLINDNESS)) {
-                player.setSprinting(true);
+        if (ChellsModKeybinds.sprint.wasPressed()){
+            if (!player.isSprinting()){
+                if(notHungry && !player.isUsingItem() && !player.hasStatusEffect(StatusEffect.BLINDNESS)){
+                    player.setSprinting(true);
+                }
+            } else {
+                player.setSprinting(false);
             }
         }
     }
 
+    @Redirect(method = "tickMovement()V", at = @At(value = "FIELD",
+            target = "Lnet/minecraft/entity/player/ClientPlayerEntity;onGround:Z", opcode = 0, ordinal = 0))
+    private boolean inject2(ClientPlayerEntity instance){
+        return true;
+    }
 }
