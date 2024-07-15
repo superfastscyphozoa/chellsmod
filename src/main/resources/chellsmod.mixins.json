@@ -5,7 +5,7 @@
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "SkeletonMixin",
-    "PlayerMixin"
+    "FogMixin"
   ],
   "client": [
     "client.ClientPlayerMixin"
