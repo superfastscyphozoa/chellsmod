@@ -13,17 +13,5 @@ public class PlayerMixin {
             target = "Lnet/minecraft/entity/player/PlayerAbilities;getFlySpeed()F", ordinal = 0, shift = At.Shift.BY, by = 3))
     protected void creativeFlightControl(CallbackInfo ci){
         PlayerEntity player = (PlayerEntity) (Object) this;
-
-        float flySpeed = player.abilities.getFlySpeed();
-
-        if (player.isSprinting()){
-            player.flyingSpeed = flySpeed * 2.25F;
-        } else {
-            player.flyingSpeed = flySpeed * 1.25F;
-        }
-
-        double yFlySpeed = player.velocityY;
-
-        player.velocityY = yFlySpeed * 1.25;
     }
 }
