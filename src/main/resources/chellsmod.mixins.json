@@ -4,11 +4,11 @@
   "package": "net.superfastscyphozoa.chellsmod.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "SkeletonMixin",
-    "FogMixin"
+    "SkeletonMixin"
   ],
   "client": [
-    "client.ClientPlayerMixin"
+    "client.ClientPlayerMixin",
+    "FogMixin"
   ],
   "injectors": {
     "defaultRequire": 1
