@@ -30,6 +30,12 @@ public class FogMixin{
 
     @Shadow private float viewDistance;
 
+    @Inject(method = "tick", at = @At(value = "TAIL"))
+    private void tick(CallbackInfo ci){
+        prevFogStartDepth = fs;
+        prevFogEndDepth = fe;
+    }
+
     @Unique
     private void setFogLevel(){
         if(ChellsModClient.fog.wasPressed()){
@@ -71,9 +77,8 @@ public class FogMixin{
             fogEndDepth = (Math.min(fx, 144.0F) * 0.5F);
         }
 
-        fs = fogStartDepth;
-        fe = fogEndDepth;
-
+        fs = prevFogStartDepth + (fogStartDepth - prevFogStartDepth) * (tickDelta / 10);
+        fe = prevFogEndDepth + (fogEndDepth - prevFogEndDepth) * (tickDelta / 10);
     }
 
     @Inject(method = "renderFog", at = @At(value = "INVOKE",
