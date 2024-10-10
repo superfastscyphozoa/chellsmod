@@ -10,6 +10,6 @@ public class ChellsModClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        fog = KeyBindingHelper.registerKeyBinding(new KeyBinding("key.chellsmod.fog", Keyboard.KEY_F, "key.categories.misc"));
+        fog = KeyBindingHelper.registerKeyBinding(new KeyBinding("key.chellsmod.fog", Keyboard.KEY_G, "key.categories.misc"));
     }
 }

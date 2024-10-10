@@ -1,5 +1,6 @@
 package net.superfastscyphozoa.chellsmod.mixin;
 
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.mob.SkeletonEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -17,8 +18,8 @@ public class SkeletonMixin {
 
 		if (skelly.getRandom().nextFloat() > 0.5f){
 			if (skelly.getRandom().nextFloat() > 0.75f){
-				skelly.setArmorSlot(0, new ItemStack(Items.STONE_AXE));
-			} else skelly.setArmorSlot(0, new ItemStack(Items.STONE_SWORD));
+				skelly.equipStack(EquipmentSlot.MAINHAND, new ItemStack(Items.STONE_AXE));
+			} else skelly.equipStack(EquipmentSlot.MAINHAND, new ItemStack(Items.STONE_SWORD));
 		}
 	}
 }
