@@ -2,7 +2,6 @@ package net.superfastscyphozoa.chellsmod.mixin;
 
 import com.mojang.blaze3d.platform.GlStateManager;
 import net.minecraft.client.render.GameRenderer;
-import net.minecraft.entity.mob.SkeletonEntity;
 import net.superfastscyphozoa.chellsmod.client.ChellsModClient;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -34,7 +33,7 @@ public class FogMixin{
     @Unique
     private void setFogLevel(){
         if(ChellsModClient.fog.wasPressed()){
-            if(fogLevel < 2){
+            if(fogLevel < 4){
                 fogLevel++;
             }
             else {
@@ -52,16 +51,24 @@ public class FogMixin{
 
         if
         (fogLevel == 0){
+            fogStartDepth = (fx * 0.75F);
+            fogEndDepth = (fx);
+        } else if
+        (fogLevel == 1){
             fogStartDepth = (Math.min(fx, 192.0F) * 0.4F);
             fogEndDepth = (Math.min(fx, 192.0F));
         } else if
-        (fogLevel == 1){
+        (fogLevel == 2){
             fogStartDepth = (Math.min(fx, 192.0F) * 0.2F);
             fogEndDepth = (Math.min(fx, 192.0F) * 0.75F);
         } else if
-        (fogLevel == 2){
+        (fogLevel == 3){
             fogStartDepth = (Math.min(fx, 192.0F) * 0.1F);
             fogEndDepth = (Math.min(fx, 192.0F) * 0.5F);
+        } else if
+        (fogLevel == 4){
+            fogStartDepth = (Math.min(fx, 144.0F) * 0.1F);
+            fogEndDepth = (Math.min(fx, 144.0F) * 0.5F);
         }
 
         fs = fogStartDepth;
