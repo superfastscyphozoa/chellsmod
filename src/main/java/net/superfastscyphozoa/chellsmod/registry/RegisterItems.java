@@ -7,10 +7,8 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
 import net.superfastscyphozoa.chellsmod.Chellsmod;
 
@@ -21,6 +19,8 @@ public class RegisterItems {
     //registry
 
     public static final Item MAGGOT_ITEM = registerItem("maggot_item", Item::new, new Item.Properties());
+
+    public static final Item FLY_SPAWN_EGG = registerSpawnEgg(RegisterEntities.FLY);
 
     //registry end
 
@@ -42,6 +42,14 @@ public class RegisterItems {
 
     private static Function<Item.Properties, Item> createBlockItemWithCustomItemName(Block block) {
         return (properties) -> new BlockItem(block, properties.useItemDescriptionPrefix());
+    }
+
+    private static Item registerSpawnEgg(EntityType<?> entityType) {
+        //removes the entity namespace from the item name
+        String entityWithNamespace = (entityType + "_spawn_egg");
+        String entity = entityWithNamespace.substring(17);
+
+        return registerItem(entity, SpawnEggItem::new, (new Item.Properties()).spawnEgg(entityType));
     }
 
     //-----------------------------------------------------------
@@ -66,5 +74,8 @@ public class RegisterItems {
     private static void addToItemGroups() {
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.COMBAT)
                 .register((itemGroup -> itemGroup.addBefore(Items.WIND_CHARGE, MAGGOT_ITEM)));
+
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.SPAWN_EGGS)
+                .register((itemGroup -> itemGroup.addAfter(Items.SPIDER_SPAWN_EGG, FLY_SPAWN_EGG)));
     }
 }

@@ -30,6 +30,8 @@ public class ModelProvider extends FabricModelProvider {
     @Override
     public void generateItemModels(ItemModelGenerators itemModelGenerator) {
         itemModelGenerator.generateFlatItem(RegisterItems.MAGGOT_ITEM, ModelTemplates.FLAT_ITEM);
+
+        itemModelGenerator.generateFlatItem(RegisterItems.FLY_SPAWN_EGG, ModelTemplates.FLAT_ITEM);
     }
 
     @Override

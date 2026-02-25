@@ -1,6 +1,8 @@
 // 1.21.11	-999999999-01-01T00:00:00	ChellsMod/ChellsmodModelProvider
 bf68a3461a5bcd21cb7f22216f9e0fd230d872e5 assets/chellsmod/blockstates/example_block.json
 93d53cf09dc119ae9450ed6ef3d67130a30d02aa assets/chellsmod/items/example_block.json
+7f62e33d74cbcfe900efc2e79af7b16a75c69a70 assets/chellsmod/items/fly_spawn_egg.json
 c279627e8f609527a5a9c61441a69ba42a44fb55 assets/chellsmod/items/maggot_item.json
 0c7029ed1b2be6975faa8667512eb0c08ec8a2bf assets/chellsmod/models/block/example_block.json
+a91fe03fa8a3ddd9dbc3652476cba46aa82741c3 assets/chellsmod/models/item/fly_spawn_egg.json
 fc5189e9406065b631e1953003c3e1f2e4955d91 assets/chellsmod/models/item/maggot_item.json

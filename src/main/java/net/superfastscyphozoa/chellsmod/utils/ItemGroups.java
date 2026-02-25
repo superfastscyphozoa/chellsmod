@@ -34,6 +34,7 @@ public class ItemGroups {
             .displayItems((params, output) -> {
 
                 output.accept(RegisterItems.MAGGOT_ITEM);
+                output.accept(RegisterItems.FLY_SPAWN_EGG);
 
             })
             .build();
