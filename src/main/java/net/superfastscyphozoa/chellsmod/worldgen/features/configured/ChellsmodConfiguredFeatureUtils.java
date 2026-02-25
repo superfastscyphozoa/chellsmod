@@ -11,7 +11,7 @@ import net.superfastscyphozoa.chellsmod.Chellsmod;
 
 public class ChellsmodConfiguredFeatureUtils {
     public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> bootstrapContext) {
-
+        VegetationConfiguredFeatures.bootstrap(bootstrapContext);
     }
 
     public static ResourceKey<ConfiguredFeature<?, ?>> createKey(String string) {

@@ -15,7 +15,7 @@ import java.util.List;
 
 public class ChellsmodPlacedFeatureUtils {
     public static void bootstrap(BootstrapContext<PlacedFeature> bootstrapContext) {
-
+        VegetationPlacedFeatures.bootstrap(bootstrapContext);
     }
 
     public static ResourceKey<PlacedFeature> createKey(String string) {

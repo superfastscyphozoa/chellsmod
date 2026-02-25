@@ -4,6 +4,7 @@ import net.fabricmc.api.ModInitializer;
 import net.superfastscyphozoa.chellsmod.registry.RegisterBlocks;
 import net.superfastscyphozoa.chellsmod.registry.RegisterItems;
 import net.superfastscyphozoa.chellsmod.utils.ItemGroups;
+import net.superfastscyphozoa.chellsmod.worldgen.ChellsmodWorldgen;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -18,6 +19,8 @@ public class Chellsmod implements ModInitializer {
 
         RegisterItems.initChellsmodItems();
         RegisterBlocks.initChellsmodBlocks();
+
+        ChellsmodWorldgen.modifyBiomes();
 
         Chellsmod.LOGGER.info("Hi! Love ya <3");
     }
