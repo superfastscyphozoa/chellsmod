@@ -1,0 +1,59 @@
+package net.superfastscyphozoa.chellsmod.utils;
+
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemStack;
+import net.superfastscyphozoa.chellsmod.Chellsmod;
+import net.superfastscyphozoa.chellsmod.registry.RegisterBlocks;
+import net.superfastscyphozoa.chellsmod.registry.RegisterItems;
+
+public class ItemGroups {
+
+    public static final ResourceKey<CreativeModeTab> CHELLSMOD_ITEMS_TAB_KEY =
+            ResourceKey.create(
+                    BuiltInRegistries.CREATIVE_MODE_TAB.key(),
+                    Identifier.fromNamespaceAndPath(Chellsmod.MOD_ID, "chellsmod_items_tab")
+            );
+
+    public static final ResourceKey<CreativeModeTab> CHELLSMOD_BLOCKS_TAB_KEY =
+            ResourceKey.create(
+                    BuiltInRegistries.CREATIVE_MODE_TAB.key(),
+                    Identifier.fromNamespaceAndPath(Chellsmod.MOD_ID, "chellsmod_blocks_tab")
+            );
+
+    //------------------------------------------------
+
+    public static final CreativeModeTab CHELLSMOD_ITEMS_TAB = FabricItemGroup.builder()
+            .icon(() -> new ItemStack(RegisterItems.MAGGOT_ITEM))
+            .title(Component.translatable("itemGroup.chellsmod.items"))
+            .displayItems((params, output) -> {
+
+                output.accept(RegisterItems.MAGGOT_ITEM);
+
+            })
+            .build();
+
+    public static final CreativeModeTab CHELLSMOD_BLOCKS_TAB = FabricItemGroup.builder()
+            .icon(() -> new ItemStack(RegisterBlocks.EXAMPLE_BLOCK))
+            .title(Component.translatable("itemGroup.chellsmod.blocks"))
+            .displayItems((params, output) -> {
+
+                output.accept(RegisterBlocks.EXAMPLE_BLOCK);
+
+            })
+            .build();
+
+    //------------------------------------------------
+
+    public static void initChellsmodItemGroups() {
+        Chellsmod.LOGGER.info("registering " + Chellsmod.MOD_ID + " item groups!");
+
+        Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, CHELLSMOD_ITEMS_TAB_KEY, CHELLSMOD_ITEMS_TAB);
+        Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, CHELLSMOD_BLOCKS_TAB_KEY, CHELLSMOD_BLOCKS_TAB);
+    }
+}

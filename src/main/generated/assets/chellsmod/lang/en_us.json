@@ -1,0 +1,6 @@
+{
+  "block.chellsmod.example_block": "Example Block",
+  "item.chellsmod.maggot_item": "Maggot",
+  "itemGroup.chellsmod.blocks": "Chellsmod Blocks",
+  "itemGroup.chellsmod.items": "Chellsmod Items"
+}
