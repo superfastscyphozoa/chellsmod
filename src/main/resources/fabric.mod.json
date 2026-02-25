@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "chellsmod",
+  "version": "${version}",
+  "name": "ChellsMod",
+  "description": "Chellsmod modern edition",
+  "authors": [],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/chellsmod/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "fabric-datagen": [
+      "net.superfastscyphozoa.chellsmod.client.ChellsmodDataGenerator"
+    ],
+    "client": [
+      "net.superfastscyphozoa.chellsmod.client.ChellsmodClient"
+    ],
+    "main": [
+      "net.superfastscyphozoa.chellsmod.Chellsmod"
+    ]
+  },
+  "mixins": [
+    "chellsmod.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
