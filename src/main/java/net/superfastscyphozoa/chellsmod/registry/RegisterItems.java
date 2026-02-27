@@ -11,6 +11,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
 import net.superfastscyphozoa.chellsmod.Chellsmod;
+import net.superfastscyphozoa.chellsmod.items.ConsumableUtils;
 
 import java.util.function.Function;
 
@@ -21,6 +22,11 @@ public class RegisterItems {
     public static final Item MAGGOT_ITEM = registerItem("maggot_item", Item::new, new Item.Properties());
 
     public static final Item FLY_SPAWN_EGG = registerSpawnEgg(RegisterEntities.FLY);
+
+    public static final Item FLY_MEAT = registerItem("fly_meat", Item::new,
+            new Item.Properties().food(ConsumableUtils.FLY_MEAT, ConsumableUtils.FLY_MEAT_CONSUMABLE));
+    public static final Item COOKED_FLY_MEAT = registerItem("cooked_fly_meat", Item::new,
+            new Item.Properties().food(ConsumableUtils.COOKED_FLY_MEAT, ConsumableUtils.FLY_MEAT_CONSUMABLE));
 
     //registry end
 

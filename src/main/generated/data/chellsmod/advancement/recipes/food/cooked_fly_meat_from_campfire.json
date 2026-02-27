@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_chellsmod:fly_meat": {
+      "conditions": {
+        "items": [
+          {
+            "items": "chellsmod:fly_meat"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "chellsmod:cooked_fly_meat_from_campfire"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_chellsmod:fly_meat"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "chellsmod:cooked_fly_meat_from_campfire"
+    ]
+  }
+}

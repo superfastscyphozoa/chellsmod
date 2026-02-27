@@ -1,5 +1,8 @@
 {
   "block.chellsmod.example_block": "Example Block",
+  "item.chellsmod.cooked_fly_meat": "Cooked Fly Meat",
+  "item.chellsmod.fly_meat": "Fly Meat",
+  "item.chellsmod.fly_spawn_egg": "Fly Spawn Egg",
   "item.chellsmod.maggot_item": "Maggot",
   "itemGroup.chellsmod.blocks": "Chellsmod Blocks",
   "itemGroup.chellsmod.items": "Chellsmod Items"

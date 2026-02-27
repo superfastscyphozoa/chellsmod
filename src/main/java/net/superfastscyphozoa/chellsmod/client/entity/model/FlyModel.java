@@ -2,14 +2,16 @@ package net.superfastscyphozoa.chellsmod.client.entity.model;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.minecraft.client.animation.KeyframeAnimation;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
-import net.minecraft.client.renderer.entity.state.LivingEntityRenderState;
+import net.superfastscyphozoa.chellsmod.client.entity.animation.FlyAnimation;
+import net.superfastscyphozoa.chellsmod.client.entity.render_state.FlyRenderState;
 
 @Environment(EnvType.CLIENT)
-public class FlyModel extends EntityModel<LivingEntityRenderState> {
+public class FlyModel extends EntityModel<FlyRenderState> {
     private final ModelPart body;
     private final ModelPart thorax;
     private final ModelPart abdomen;
@@ -17,6 +19,9 @@ public class FlyModel extends EntityModel<LivingEntityRenderState> {
     private final ModelPart mouth;
     private final ModelPart lwing;
     private final ModelPart rwing;
+
+    private final KeyframeAnimation idleAnimation;
+    private final KeyframeAnimation shootAnimation;
 
     public FlyModel(ModelPart root) {
         super(root);
@@ -27,6 +32,9 @@ public class FlyModel extends EntityModel<LivingEntityRenderState> {
         this.mouth = thorax.getChild("mouth");
         this.lwing = thorax.getChild("lwing");
         this.rwing = thorax.getChild("rwing");
+
+        this.idleAnimation = FlyAnimation.idle.bake(root);
+        this.shootAnimation = FlyAnimation.shoot.bake(root);
     }
 
     public static LayerDefinition createBodyLayer() {
@@ -60,5 +68,11 @@ public class FlyModel extends EntityModel<LivingEntityRenderState> {
         PartDefinition cube_r5 = rwing.addOrReplaceChild("cube_r5", CubeListBuilder.create().texOffs(12, 20).addBox(-6.0F, 0.0F, -1.0F, 6.0F, 0.0F, 10.0F, cubeDeformation), PartPose.offsetAndRotation(0.0F, -0.2F, 1.0F, 0.1745F, -0.2618F, 0.0F));
 
         return LayerDefinition.create(meshDefinition, 48, 32);
+    }
+
+    public void setupAnim(FlyRenderState flyRenderState) {
+        super.setupAnim(flyRenderState);
+        this.idleAnimation.apply(flyRenderState.idleAnimationState, flyRenderState.ageInTicks);
+        this.shootAnimation.apply(flyRenderState.shootAnimationState, flyRenderState.ageInTicks);
     }
 }

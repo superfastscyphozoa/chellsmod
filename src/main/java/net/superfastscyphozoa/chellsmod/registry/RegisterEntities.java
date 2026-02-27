@@ -17,7 +17,7 @@ public class RegisterEntities {
     //registry
 
     public static final EntityType<FlyEntity> FLY =
-            registerEntity("fly", EntityType.Builder.of(FlyEntity::new, MobCategory.CREATURE).sized(0.9F, 0.9F).clientTrackingRange(10));
+            registerEntity("fly", EntityType.Builder.of(FlyEntity::new, MobCategory.CREATURE).sized(0.6F, 0.8F).clientTrackingRange(10));
 
     private static void registerAttributes(){
         FabricDefaultAttributeRegistry.register(RegisterEntities.FLY, FlyEntity.createAttributes());

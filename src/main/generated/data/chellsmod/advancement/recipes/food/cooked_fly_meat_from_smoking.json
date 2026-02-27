@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_maggot_item": {
+    "has_chellsmod:fly_meat": {
       "conditions": {
         "items": [
           {
-            "items": "chellsmod:maggot_item"
+            "items": "chellsmod:fly_meat"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "chellsmod:slime_ball_from_maggot"
+        "recipe": "chellsmod:cooked_fly_meat_from_smoking"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_maggot_item"
+      "has_chellsmod:fly_meat"
     ]
   ],
   "rewards": {
     "recipes": [
-      "chellsmod:slime_ball_from_maggot"
+      "chellsmod:cooked_fly_meat_from_smoking"
     ]
   }
 }

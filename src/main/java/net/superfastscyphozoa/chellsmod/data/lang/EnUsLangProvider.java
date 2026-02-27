@@ -18,7 +18,13 @@ public class EnUsLangProvider extends FabricLanguageProvider {
         translationBuilder.add("itemGroup.chellsmod.items", "Chellsmod Items");
         translationBuilder.add("itemGroup.chellsmod.blocks", "Chellsmod Blocks");
 
+        translationBuilder.add(RegisterItems.FLY_SPAWN_EGG, "Fly Spawn Egg");
+
+        translationBuilder.add(RegisterItems.FLY_MEAT, "Fly Meat");
+        translationBuilder.add(RegisterItems.COOKED_FLY_MEAT, "Cooked Fly Meat");
+
         translationBuilder.add(RegisterItems.MAGGOT_ITEM, "Maggot");
+
         translationBuilder.add(RegisterBlocks.EXAMPLE_BLOCK, "Example Block");
     }
 }

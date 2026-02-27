@@ -36,6 +36,9 @@ public class ItemGroups {
                 output.accept(RegisterItems.MAGGOT_ITEM);
                 output.accept(RegisterItems.FLY_SPAWN_EGG);
 
+                output.accept(RegisterItems.FLY_MEAT);
+                output.accept(RegisterItems.COOKED_FLY_MEAT);
+
             })
             .build();
 

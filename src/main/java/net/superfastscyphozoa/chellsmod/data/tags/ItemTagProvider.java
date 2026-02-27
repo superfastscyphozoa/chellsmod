@@ -33,6 +33,7 @@ public class ItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(Items.CHICKEN);
 
         valueLookupBuilder(ItemTags.WOLF_FOOD)
-                .add(RegisterItems.MAGGOT_ITEM);
+                .add(RegisterItems.FLY_MEAT)
+                .add(RegisterItems.COOKED_FLY_MEAT);;
     }
 }
