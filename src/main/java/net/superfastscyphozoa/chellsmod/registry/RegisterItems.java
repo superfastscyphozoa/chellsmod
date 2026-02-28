@@ -11,7 +11,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
 import net.superfastscyphozoa.chellsmod.Chellsmod;
-import net.superfastscyphozoa.chellsmod.items.ConsumableUtils;
+import net.superfastscyphozoa.chellsmod.item.ConsumableUtils;
 
 import java.util.function.Function;
 

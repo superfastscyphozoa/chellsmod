@@ -7,20 +7,18 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.control.FlyingMoveControl;
-import net.minecraft.world.entity.ai.goal.BreedGoal;
-import net.minecraft.world.entity.ai.goal.FloatGoal;
-import net.minecraft.world.entity.ai.goal.Goal;
-import net.minecraft.world.entity.ai.goal.TemptGoal;
-import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
+import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.navigation.FlyingPathNavigation;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
+import net.minecraft.world.entity.ai.util.AirAndWaterRandomPos;
+import net.minecraft.world.entity.ai.util.HoverRandomPos;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.FlyingAnimal;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec3;
 import net.superfastscyphozoa.chellsmod.data.tags.ItemTagProvider;
 import org.jspecify.annotations.Nullable;
 
@@ -47,12 +45,10 @@ public class FlyEntity extends Animal implements NeutralMob, FlyingAnimal {
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new BreedGoal(this, 1.0));
-        this.goalSelector.addGoal(2, new TemptGoal(this, 1.25, itemStack -> itemStack.is(ItemTagProvider.FLY_FOOD), false));
-        this.goalSelector.addGoal(3, new FlyLookGoal(this));
+        this.goalSelector.addGoal(1, new TemptGoal(this, 1.25, itemStack -> itemStack.is(ItemTagProvider.FLY_FOOD), false));
+        this.goalSelector.addGoal(2, new FlyLookAtTargetGoal(this));
+        this.goalSelector.addGoal(3, new ErraticFlyingGoal(this));
         this.goalSelector.addGoal(4, new FloatGoal(this));
-
-        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>
-                (this, Player.class, 10, true, false, (livingEntity, serverLevel) -> Math.abs(livingEntity.getY() - this.getY()) <= 4.0));
     }
 
     @Override
@@ -147,7 +143,7 @@ public class FlyEntity extends Animal implements NeutralMob, FlyingAnimal {
 
     //-------------------------------
 
-    public static void faceMovementDirection(Mob mob) {
+    public static void faceTargetDirection(Mob mob) {
         if (mob.getTarget() != null){
             LivingEntity livingEntity = mob.getTarget();
             if (livingEntity.distanceToSqr(mob) < 64.0) {
@@ -160,17 +156,17 @@ public class FlyEntity extends Animal implements NeutralMob, FlyingAnimal {
     }
 }
 
-class FlyLookGoal extends Goal {
+class FlyLookAtTargetGoal extends Goal {
     private final Mob fly;
 
-    protected FlyLookGoal(Mob mob) {
+    protected FlyLookAtTargetGoal(Mob mob) {
         this.fly = mob;
         this.setFlags(EnumSet.of(Goal.Flag.LOOK));
     }
 
     @Override
     public boolean canUse() {
-        return true;
+        return fly.getTarget() != null;
     }
 
     @Override
@@ -180,6 +176,35 @@ class FlyLookGoal extends Goal {
 
     @Override
     public void tick() {
-        FlyEntity.faceMovementDirection(this.fly);
+        FlyEntity.faceTargetDirection(this.fly);
+    }
+}
+
+class ErraticFlyingGoal extends Goal {
+    protected final PathfinderMob mob;
+
+    public ErraticFlyingGoal(PathfinderMob pathfinderMob) {
+        this.mob = pathfinderMob;
+    }
+
+    @Override
+    public boolean canUse() {
+        return false;
+    }
+
+    @Override
+    public boolean canContinueToUse() {
+        return !this.mob.getNavigation().isDone();
+    }
+
+    @Override
+    public void start() {
+        //this.mob.getNavigation().moveTo(this.wantedX, this.wantedY, this.wantedZ, this.speedModifier);
+    }
+
+    @Override
+    public void stop() {
+        this.mob.getNavigation().stop();
+        super.stop();
     }
 }

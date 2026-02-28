@@ -25,6 +25,6 @@ public class EnUsLangProvider extends FabricLanguageProvider {
 
         translationBuilder.add(RegisterItems.MAGGOT_ITEM, "Maggot");
 
-        translationBuilder.add(RegisterBlocks.EXAMPLE_BLOCK, "Example Block");
+        translationBuilder.add(RegisterBlocks.EXAMPLE_BLOCK, "Test Block");
     }
 }
