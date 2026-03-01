@@ -1,4 +1,4 @@
-package net.superfastscyphozoa.chellsmod.utils;
+package net.superfastscyphozoa.chellsmod.registry;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.core.Registry;
@@ -9,10 +9,8 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.superfastscyphozoa.chellsmod.Chellsmod;
-import net.superfastscyphozoa.chellsmod.registry.RegisterBlocks;
-import net.superfastscyphozoa.chellsmod.registry.RegisterItems;
 
-public class ItemGroups {
+public class RegisterItemGroups {
 
     public static final ResourceKey<CreativeModeTab> CHELLSMOD_ITEMS_TAB_KEY =
             ResourceKey.create(

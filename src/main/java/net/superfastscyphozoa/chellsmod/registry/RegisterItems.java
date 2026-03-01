@@ -12,6 +12,7 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
 import net.superfastscyphozoa.chellsmod.Chellsmod;
 import net.superfastscyphozoa.chellsmod.item.ConsumableUtils;
+import net.superfastscyphozoa.chellsmod.item.MaggotItem;
 
 import java.util.function.Function;
 
@@ -19,7 +20,7 @@ public class RegisterItems {
 
     //registry
 
-    public static final Item MAGGOT_ITEM = registerItem("maggot_item", Item::new, new Item.Properties());
+    public static final Item MAGGOT_ITEM = registerItem("maggot_item", MaggotItem::new, new Item.Properties().useCooldown(0.5F));
 
     public static final Item FLY_SPAWN_EGG = registerSpawnEgg(RegisterEntities.FLY);
 
@@ -80,6 +81,12 @@ public class RegisterItems {
     private static void addToItemGroups() {
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.COMBAT)
                 .register((itemGroup -> itemGroup.addBefore(Items.WIND_CHARGE, MAGGOT_ITEM)));
+
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FOOD_AND_DRINKS)
+                .register((itemGroup -> itemGroup.addAfter(Items.ROTTEN_FLESH, FLY_MEAT)));
+
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FOOD_AND_DRINKS)
+                .register((itemGroup -> itemGroup.addAfter(FLY_MEAT, COOKED_FLY_MEAT)));
 
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.SPAWN_EGGS)
                 .register((itemGroup -> itemGroup.addAfter(Items.SPIDER_SPAWN_EGG, FLY_SPAWN_EGG)));

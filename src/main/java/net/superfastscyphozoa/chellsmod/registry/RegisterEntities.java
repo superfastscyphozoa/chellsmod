@@ -11,13 +11,19 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.superfastscyphozoa.chellsmod.Chellsmod;
 import net.superfastscyphozoa.chellsmod.entity.FlyEntity;
+import net.superfastscyphozoa.chellsmod.entity.projectile.MaggotProjectileEntity;
 
 public class RegisterEntities {
 
     //registry
 
     public static final EntityType<FlyEntity> FLY =
-            registerEntity("fly", EntityType.Builder.of(FlyEntity::new, MobCategory.CREATURE).sized(0.6F, 0.8F).clientTrackingRange(10));
+            registerEntity("fly", EntityType.Builder.of(FlyEntity::new, MobCategory.CREATURE)
+                    .sized(0.6F, 0.8F).clientTrackingRange(10));
+
+    public static final EntityType<MaggotProjectileEntity> MAGGOT_PROJECTILE =
+            registerEntity("maggot_projectile", EntityType.Builder.<MaggotProjectileEntity>of(MaggotProjectileEntity::new, MobCategory.MISC)
+                    .noLootTable().sized(0.25F, 0.25F).clientTrackingRange(4).updateInterval(10));
 
     private static void registerAttributes(){
         FabricDefaultAttributeRegistry.register(RegisterEntities.FLY, FlyEntity.createAttributes());

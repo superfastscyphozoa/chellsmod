@@ -1,10 +1,7 @@
 package net.superfastscyphozoa.chellsmod;
 
 import net.fabricmc.api.ModInitializer;
-import net.superfastscyphozoa.chellsmod.registry.RegisterBlocks;
-import net.superfastscyphozoa.chellsmod.registry.RegisterEntities;
-import net.superfastscyphozoa.chellsmod.registry.RegisterItems;
-import net.superfastscyphozoa.chellsmod.utils.ItemGroups;
+import net.superfastscyphozoa.chellsmod.registry.*;
 import net.superfastscyphozoa.chellsmod.worldgen.ChellsmodWorldgen;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,12 +13,15 @@ public class Chellsmod implements ModInitializer {
     @Override
     public void onInitialize() {
 
-        ItemGroups.initChellsmodItemGroups();
+        RegisterItemGroups.initChellsmodItemGroups();
 
         RegisterItems.initChellsmodItems();
         RegisterBlocks.initChellsmodBlocks();
 
         RegisterEntities.initChellsmodEntities();
+        RegisterMobEffects.initChellsmodMobEffects();
+
+        RegisterDamageTypes.initChellsmodDamageTypes();
 
         ChellsmodWorldgen.modifyBiomes();
 
