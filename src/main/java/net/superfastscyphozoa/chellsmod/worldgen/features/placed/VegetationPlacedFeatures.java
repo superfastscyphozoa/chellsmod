@@ -15,13 +15,18 @@ import net.superfastscyphozoa.chellsmod.worldgen.features.configured.VegetationC
 
 public class VegetationPlacedFeatures {
     public static final ResourceKey<PlacedFeature> PATCH_TALL_GRASS = ChellsmodPlacedFeatureUtils.createKey("patch_tall_grass");
+    public static final ResourceKey<PlacedFeature> PATCH_SEEDING_DANDELION = ChellsmodPlacedFeatureUtils.createKey("patch_seeding_dandelion");
 
     public static void bootstrap(BootstrapContext<PlacedFeature> bootstrapContext) {
         HolderGetter<ConfiguredFeature<?, ?>> holderGetter = bootstrapContext.lookup(Registries.CONFIGURED_FEATURE);
 
         Holder.Reference<ConfiguredFeature<?, ?>> patch_tall_grass = holderGetter.getOrThrow(VegetationConfiguredFeatures.PATCH_TALL_GRASS);
+        Holder.Reference<ConfiguredFeature<?, ?>> patch_seeding_dandelion = holderGetter.getOrThrow(VegetationConfiguredFeatures.PATCH_SEEDING_DANDELIONS);
 
         ChellsmodPlacedFeatureUtils.register(bootstrapContext, PATCH_TALL_GRASS, patch_tall_grass,
                 RarityFilter.onAverageOnceEvery(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
+
+        ChellsmodPlacedFeatureUtils.register(bootstrapContext, PATCH_SEEDING_DANDELION, patch_seeding_dandelion,
+                RarityFilter.onAverageOnceEvery(16), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
     }
 }

@@ -1,3 +1,5 @@
 // 1.21.11	-999999999-01-01T00:00:00	ChellsMod/ChellsmodDynamicRegistryProvider
+fa636a0af4040fd2d4d4d2f871544aab29d375de data/chellsmod/worldgen/configured_feature/patch_seeding_dandelions.json
 05998a4ea154fb0d0e580dd0e7a5f8e635e3d943 data/chellsmod/worldgen/configured_feature/patch_tall_grass.json
+f951d5a7b8128a54fe9705a76f2ffd19dc2b109e data/chellsmod/worldgen/placed_feature/patch_seeding_dandelion.json
 9d7f096a3c3c2ae693a0367130b3943dc0ff23a9 data/chellsmod/worldgen/placed_feature/patch_tall_grass.json

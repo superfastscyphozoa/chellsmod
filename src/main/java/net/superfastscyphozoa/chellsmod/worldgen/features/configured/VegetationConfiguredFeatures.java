@@ -13,9 +13,11 @@ import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConf
 import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
+import net.superfastscyphozoa.chellsmod.registry.RegisterBlocks;
 
 public class VegetationConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_TALL_GRASS = ChellsmodConfiguredFeatureUtils.createKey("patch_tall_grass");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_SEEDING_DANDELIONS = ChellsmodConfiguredFeatureUtils.createKey("patch_seeding_dandelions");
 
     private static RandomPatchConfiguration vegetationPatch(BlockStateProvider blockStateProvider, int i) {
         return FeatureUtils.simpleRandomPatchConfiguration(i, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(blockStateProvider)));
@@ -25,10 +27,18 @@ public class VegetationConfiguredFeatures {
             .add(Blocks.TALL_GRASS.defaultBlockState(), 2).add(Blocks.SHORT_GRASS.defaultBlockState(), 1)
             .build();
 
+    static WeightedList<BlockState> dandelionBuilder = WeightedList.<BlockState>builder()
+            .add(Blocks.DANDELION.defaultBlockState(), 2).add(RegisterBlocks.SEEDING_DANDELION.defaultBlockState(), 2)
+            .add(Blocks.SHORT_GRASS.defaultBlockState(), 1)
+            .build();
+
     public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> bootstrapContext) {
 
         ChellsmodConfiguredFeatureUtils.register(bootstrapContext, PATCH_TALL_GRASS, Feature.RANDOM_PATCH,
                 vegetationPatch(new WeightedStateProvider(tallGrassBuilder), 64));
+
+        ChellsmodConfiguredFeatureUtils.register(bootstrapContext, PATCH_SEEDING_DANDELIONS, Feature.RANDOM_PATCH,
+                vegetationPatch(new WeightedStateProvider(dandelionBuilder), 64));
 
     }
 }
