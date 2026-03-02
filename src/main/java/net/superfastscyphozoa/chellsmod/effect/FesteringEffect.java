@@ -1,6 +1,5 @@
 package net.superfastscyphozoa.chellsmod.effect;
 
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
@@ -13,13 +12,14 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import net.superfastscyphozoa.chellsmod.entity.FlyEntity;
+import net.superfastscyphozoa.chellsmod.registry.RegisterParticles;
 import net.superfastscyphozoa.chellsmod.utils.DamageTypeUtils;
 import net.superfastscyphozoa.chellsmod.registry.RegisterEntities;
 import org.joml.Vector3f;
 
 public class FesteringEffect extends MobEffect {
     public FesteringEffect() {
-        super(MobEffectCategory.HARMFUL, 0, ParticleTypes.INFESTED);
+        super(MobEffectCategory.HARMFUL, 0, RegisterParticles.FESTERING_PARTICLE);
     }
 
     @Override

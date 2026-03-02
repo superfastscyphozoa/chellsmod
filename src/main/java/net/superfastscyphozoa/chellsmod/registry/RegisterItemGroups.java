@@ -48,7 +48,7 @@ public class RegisterItemGroups {
             .title(Component.translatable("itemGroup.chellsmod.blocks"))
             .displayItems((params, output) -> {
 
-                output.accept(RegisterBlocks.EXAMPLE_BLOCK);
+                output.accept(RegisterBlocks.SEEDING_DANDELION);
 
             })
             .build();

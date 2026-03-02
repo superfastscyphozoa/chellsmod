@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "blown=false": {
+      "model": "chellsmod:block/seeding_dandelion"
+    },
+    "blown=true": {
+      "model": "chellsmod:block/seeding_dandelion_blown"
+    }
+  }
+}

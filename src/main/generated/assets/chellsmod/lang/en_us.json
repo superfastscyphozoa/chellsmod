@@ -1,7 +1,11 @@
 {
   "block.chellsmod.example_block": "Test Block",
+  "block.chellsmod.seeding_dandelion": "Seeding Dandelion",
   "death.attack.maggot": "%1$s was parasitized by a maggot",
   "death.attack.maggot.player": "%1$s was parasitized by %2$s's maggot",
+  "effect.chellsmod.festering": "Festering",
+  "entity.chellsmod.fly": "Fly",
+  "entity.chellsmod.maggot_projectile": "Maggot",
   "item.chellsmod.cooked_fly_meat": "Cooked Fly Meat",
   "item.chellsmod.fly_egg_cluster": "Fly Egg Cluster",
   "item.chellsmod.fly_meat": "Fly Meat",

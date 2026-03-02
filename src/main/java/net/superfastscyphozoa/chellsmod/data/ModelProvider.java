@@ -18,6 +18,8 @@ public class ModelProvider extends FabricModelProvider {
 
         blockStateModelGenerator.createTrivialCube(RegisterBlocks.EXAMPLE_BLOCK);
 
+        //blockStateModelGenerator.createCrossBlockWithDefaultItem(RegisterBlocks.SEEDING_DANDELION, BlockModelGenerators.PlantType.NOT_TINTED);
+
 //        blockStateModelGenerator.createTrivialBlock(RegisterBlocks.EXAMPLE, TexturedModel.COLUMN_ALT);
 
 //        blockStateModelGenerator.family(RegisterBlocks.EXAMPLE_BLOCK)
@@ -29,6 +31,7 @@ public class ModelProvider extends FabricModelProvider {
 
     @Override
     public void generateItemModels(ItemModelGenerators itemModelGenerator) {
+
         itemModelGenerator.generateFlatItem(RegisterItems.MAGGOT_ITEM, ModelTemplates.FLAT_ITEM);
 
         itemModelGenerator.generateFlatItem(RegisterItems.FLY_EGG_CLUSTER, ModelTemplates.FLAT_ITEM);

@@ -23,6 +23,8 @@ public class Chellsmod implements ModInitializer {
         RegisterEntities.initChellsmodEntities();
         RegisterMobEffects.initChellsmodMobEffects();
 
+        RegisterParticles.initChellsmodParticles();
+
         DamageTypeUtils.initChellsmodDamageTypes();
 
         ChellsmodWorldgen.modifyBiomes();

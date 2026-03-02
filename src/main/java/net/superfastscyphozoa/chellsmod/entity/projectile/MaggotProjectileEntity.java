@@ -18,6 +18,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.superfastscyphozoa.chellsmod.entity.FlyEntity;
+import net.superfastscyphozoa.chellsmod.registry.RegisterEntities;
 import net.superfastscyphozoa.chellsmod.registry.RegisterItems;
 import net.superfastscyphozoa.chellsmod.registry.RegisterMobEffects;
 import net.superfastscyphozoa.chellsmod.utils.DamageTypeUtils;
@@ -28,11 +29,11 @@ public class MaggotProjectileEntity extends ThrowableItemProjectile {
     }
 
     public MaggotProjectileEntity(Level level, LivingEntity livingEntity, ItemStack itemStack) {
-        super(EntityType.SNOWBALL, livingEntity, level, itemStack);
+        super(RegisterEntities.MAGGOT_PROJECTILE, livingEntity, level, itemStack);
     }
 
     public MaggotProjectileEntity(Level level, double d, double e, double f, ItemStack itemStack) {
-        super(EntityType.SNOWBALL, d, e, f, level, itemStack);
+        super(RegisterEntities.MAGGOT_PROJECTILE, d, e, f, level, itemStack);
     }
 
     @Override
@@ -84,7 +85,7 @@ public class MaggotProjectileEntity extends ThrowableItemProjectile {
         if (b == 3) {
             for (int i = 0; i < 8; i++) {
                 this.level().addParticle(
-                        new ItemParticleOption(ParticleTypes.ITEM, this.getItem()),
+                        new ItemParticleOption(ParticleTypes.ITEM, RegisterItems.FLY_EGG_CLUSTER.getDefaultInstance()),
                         this.getX(),
                         this.getY(),
                         this.getZ(),

@@ -6,13 +6,19 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.FlowerBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 import net.superfastscyphozoa.chellsmod.Chellsmod;
+import net.superfastscyphozoa.chellsmod.block.SeedingDandelionBlock;
 
 import java.util.function.Function;
 
@@ -24,6 +30,18 @@ public class RegisterBlocks {
             "example_block",
             Block::new,
             BlockBehaviour.Properties.of().sound(SoundType.TUFF),
+            true
+    );
+
+    public static final Block SEEDING_DANDELION = registerBlock(
+            "seeding_dandelion",
+            properties -> new SeedingDandelionBlock(MobEffects.SATURATION, 0.35F, properties),
+            BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.PLANT)
+                    .noCollision()
+                    .instabreak()
+                    .sound(SoundType.GRASS)
+                    .pushReaction(PushReaction.DESTROY),
             true
     );
 
@@ -70,7 +88,7 @@ public class RegisterBlocks {
     //add block items to vanilla item groups
 
     private static void addToItemGroups() {
-        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.BUILDING_BLOCKS)
-                .register((itemGroup -> itemGroup.accept(EXAMPLE_BLOCK)));
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.NATURAL_BLOCKS)
+                .register((itemGroup -> itemGroup.addAfter(Blocks.DANDELION, SEEDING_DANDELION)));
     }
 }

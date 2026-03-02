@@ -10,6 +10,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.superfastscyphozoa.chellsmod.Chellsmod;
+import net.superfastscyphozoa.chellsmod.registry.RegisterBlocks;
 import net.superfastscyphozoa.chellsmod.registry.RegisterItems;
 
 import java.util.concurrent.CompletableFuture;
@@ -27,6 +28,9 @@ public class ItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider wrapperLookup) {
+
+        valueLookupBuilder(ItemTags.FLOWERS)
+                .add(RegisterBlocks.SEEDING_DANDELION.asItem());
 
         valueLookupBuilder(FLY_FOOD)
                 .add(Items.ROTTEN_FLESH)
