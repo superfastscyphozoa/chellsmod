@@ -1,4 +1,4 @@
-package net.superfastscyphozoa.chellsmod.item;
+package net.superfastscyphozoa.chellsmod.utils;
 
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffectInstance;

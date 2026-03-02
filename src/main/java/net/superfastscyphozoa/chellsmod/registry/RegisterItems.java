@@ -7,11 +7,13 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
 import net.superfastscyphozoa.chellsmod.Chellsmod;
-import net.superfastscyphozoa.chellsmod.item.ConsumableUtils;
+import net.superfastscyphozoa.chellsmod.item.LootContainerItem;
+import net.superfastscyphozoa.chellsmod.utils.ConsumableUtils;
 import net.superfastscyphozoa.chellsmod.item.MaggotItem;
 
 import java.util.function.Function;
@@ -21,6 +23,9 @@ public class RegisterItems {
     //registry
 
     public static final Item MAGGOT_ITEM = registerItem("maggot_item", MaggotItem::new, new Item.Properties().useCooldown(0.5F));
+
+    public static final Item FLY_EGG_CLUSTER = registerItem("fly_egg_cluster",
+            properties -> new LootContainerItem(MAGGOT_ITEM, SoundEvents.HONEY_BLOCK_PLACE, properties), new Item.Properties());
 
     public static final Item FLY_SPAWN_EGG = registerSpawnEgg(RegisterEntities.FLY);
 
@@ -81,6 +86,9 @@ public class RegisterItems {
     private static void addToItemGroups() {
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.COMBAT)
                 .register((itemGroup -> itemGroup.addBefore(Items.WIND_CHARGE, MAGGOT_ITEM)));
+
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.TOOLS_AND_UTILITIES)
+                .register((itemGroup -> itemGroup.addBefore(Items.ENDER_PEARL, FLY_EGG_CLUSTER)));
 
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FOOD_AND_DRINKS)
                 .register((itemGroup -> itemGroup.addAfter(Items.ROTTEN_FLESH, FLY_MEAT)));

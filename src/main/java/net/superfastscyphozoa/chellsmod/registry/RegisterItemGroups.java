@@ -27,11 +27,14 @@ public class RegisterItemGroups {
     //------------------------------------------------
 
     public static final CreativeModeTab CHELLSMOD_ITEMS_TAB = FabricItemGroup.builder()
-            .icon(() -> new ItemStack(RegisterItems.MAGGOT_ITEM))
+            .icon(() -> new ItemStack(RegisterItems.FLY_MEAT))
             .title(Component.translatable("itemGroup.chellsmod.items"))
             .displayItems((params, output) -> {
 
                 output.accept(RegisterItems.MAGGOT_ITEM);
+
+                output.accept(RegisterItems.FLY_EGG_CLUSTER);
+
                 output.accept(RegisterItems.FLY_SPAWN_EGG);
 
                 output.accept(RegisterItems.FLY_MEAT);

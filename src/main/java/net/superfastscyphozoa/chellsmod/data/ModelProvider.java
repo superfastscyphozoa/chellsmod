@@ -31,6 +31,8 @@ public class ModelProvider extends FabricModelProvider {
     public void generateItemModels(ItemModelGenerators itemModelGenerator) {
         itemModelGenerator.generateFlatItem(RegisterItems.MAGGOT_ITEM, ModelTemplates.FLAT_ITEM);
 
+        itemModelGenerator.generateFlatItem(RegisterItems.FLY_EGG_CLUSTER, ModelTemplates.FLAT_ITEM);
+
         itemModelGenerator.generateFlatItem(RegisterItems.FLY_MEAT, ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(RegisterItems.COOKED_FLY_MEAT, ModelTemplates.FLAT_ITEM);
 
