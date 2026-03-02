@@ -1,13 +1,10 @@
 package net.superfastscyphozoa.chellsmod.effect;
 
-import net.minecraft.core.registries.Registries;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.damagesource.DamageSources;
-import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -16,13 +13,13 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import net.superfastscyphozoa.chellsmod.entity.FlyEntity;
-import net.superfastscyphozoa.chellsmod.registry.RegisterDamageTypes;
+import net.superfastscyphozoa.chellsmod.utils.DamageTypeUtils;
 import net.superfastscyphozoa.chellsmod.registry.RegisterEntities;
 import org.joml.Vector3f;
 
 public class FesteringEffect extends MobEffect {
     public FesteringEffect() {
-        super(MobEffectCategory.HARMFUL, 926512);
+        super(MobEffectCategory.HARMFUL, 0, ParticleTypes.INFESTED);
     }
 
     @Override
@@ -42,13 +39,7 @@ public class FesteringEffect extends MobEffect {
                     fly.setDeltaMovement(new Vec3(vector3f));
                     serverLevel.addFreshEntity(fly);
 
-                    DamageSource damageSource = new DamageSource(
-                            level.registryAccess()
-                                    .lookupOrThrow(Registries.DAMAGE_TYPE)
-                                    .get(RegisterDamageTypes.MAGGOT_DAMAGE.identifier()).get()
-                    );
-
-                    entity.hurtServer(serverLevel, damageSource, 2);
+                    entity.hurtServer(serverLevel, DamageTypeUtils.damageSource(level, DamageTypeUtils.MAGGOT_DAMAGE), 2);
 
                     fly.playSound(SoundEvents.HONEY_BLOCK_PLACE);
                 }

@@ -26,5 +26,8 @@ public class EnUsLangProvider extends FabricLanguageProvider {
         translationBuilder.add(RegisterItems.MAGGOT_ITEM, "Maggot");
 
         translationBuilder.add(RegisterBlocks.EXAMPLE_BLOCK, "Test Block");
+
+        translationBuilder.add("death.attack.maggot", "%1$s was parasitized by a maggot");
+        translationBuilder.add("death.attack.maggot.player", "%1$s was parasitized by %2$s's maggot");
     }
 }

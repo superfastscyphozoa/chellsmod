@@ -7,6 +7,7 @@ import net.minecraft.core.registries.Registries;
 import net.superfastscyphozoa.chellsmod.data.lang.EnUsLangProvider;
 import net.superfastscyphozoa.chellsmod.data.loot_tables.BlockLootTableProvider;
 import net.superfastscyphozoa.chellsmod.data.tags.BlockTagProvider;
+import net.superfastscyphozoa.chellsmod.data.tags.EntityTagProvider;
 import net.superfastscyphozoa.chellsmod.data.tags.ItemTagProvider;
 import net.superfastscyphozoa.chellsmod.worldgen.features.configured.ChellsmodConfiguredFeatureUtils;
 import net.superfastscyphozoa.chellsmod.worldgen.features.placed.ChellsmodPlacedFeatureUtils;
@@ -25,6 +26,7 @@ public class ChellsmodDataGenerator implements DataGeneratorEntrypoint {
 
         pack.addProvider(ItemTagProvider::new);
         pack.addProvider(BlockTagProvider::new);
+        pack.addProvider(EntityTagProvider::new);
 
         pack.addProvider(DynamicRegistryProvider::new);
     }

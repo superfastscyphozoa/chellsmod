@@ -3,12 +3,10 @@ package net.superfastscyphozoa.chellsmod.entity.projectile;
 import net.minecraft.core.particles.ItemParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -22,6 +20,7 @@ import net.minecraft.world.phys.HitResult;
 import net.superfastscyphozoa.chellsmod.entity.FlyEntity;
 import net.superfastscyphozoa.chellsmod.registry.RegisterItems;
 import net.superfastscyphozoa.chellsmod.registry.RegisterMobEffects;
+import net.superfastscyphozoa.chellsmod.utils.DamageTypeUtils;
 
 public class MaggotProjectileEntity extends ThrowableItemProjectile {
     public MaggotProjectileEntity(EntityType<? extends ThrowableItemProjectile> entityType, Level level) {
@@ -49,7 +48,8 @@ public class MaggotProjectileEntity extends ThrowableItemProjectile {
         if (this.level() instanceof ServerLevel serverLevel) {
             Entity entity = entityHitResult.getEntity();
 
-            DamageSource damageSource = this.damageSources().thrown(this, this.getOwner());
+            DamageSource damageSource = DamageTypeUtils.damageSource(this.level(), DamageTypeUtils.MAGGOT_DAMAGE);
+
             if (entity.hurtServer(serverLevel, damageSource, 1.0F) && entity instanceof LivingEntity livingEntity) {
                 EnchantmentHelper.doPostAttackEffects(serverLevel, livingEntity, damageSource);
 
@@ -71,7 +71,7 @@ public class MaggotProjectileEntity extends ThrowableItemProjectile {
         if (!this.level().isClientSide()) {
 
             this.level().broadcastEntityEvent(this, (byte)3);
-            hitSounds(SoundEvents.HONEY_BLOCK_BREAK,0.4f);
+            hitSounds();
 
             this.discard();
         }
@@ -96,12 +96,12 @@ public class MaggotProjectileEntity extends ThrowableItemProjectile {
         }
     }
 
-    private void hitSounds(SoundEvent soundEvent, float volume){
+    private void hitSounds(){
         Level level = this.level();
 
         level.playSound(
                 this, this.getX(), this.getY(), this.getZ(),
-                soundEvent, SoundSource.NEUTRAL, volume,
+                SoundEvents.HONEY_BLOCK_BREAK, SoundSource.NEUTRAL, (float) 0.4,
                 0.4F / (level.getRandom().nextFloat() * 0.4F + 0.8F)
         );
     }
