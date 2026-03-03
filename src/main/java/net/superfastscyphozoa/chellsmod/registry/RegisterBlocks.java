@@ -63,13 +63,7 @@ public class RegisterBlocks {
             "penny_bun",
             ShroomBlock::new,
             BlockBehaviour.Properties.of()
-                    .mapColor(MapColor.COLOR_BROWN)
-                    .noCollision()
-                    .randomTicks()
-                    .instabreak()
-                    .sound(SoundType.GRASS)
-                    .hasPostProcess(Blocks::always)
-                    .pushReaction(PushReaction.DESTROY),
+                    .mapColor(MapColor.COLOR_BROWN),
             true
     );
 
@@ -142,5 +136,11 @@ public class RegisterBlocks {
 
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.NATURAL_BLOCKS)
                 .register((itemGroup -> itemGroup.addAfter(Blocks.PEONY, FIREWEED)));
+
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.NATURAL_BLOCKS)
+                .register((itemGroup -> itemGroup.addAfter(Blocks.RED_MUSHROOM, PENNY_BUN)));
+
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.NATURAL_BLOCKS)
+                .register((itemGroup -> itemGroup.addBefore(Blocks.MUSHROOM_STEM, CHARRED_LOG)));
     }
 }

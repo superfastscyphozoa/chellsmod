@@ -33,8 +33,8 @@ public class RegisterItemGroups {
 
                 output.accept(RegisterBlocks.SEEDING_DANDELION);
                 output.accept(RegisterBlocks.FIREWEED);
-                output.accept(RegisterBlocks.CHARRED_LOG);
                 output.accept(RegisterBlocks.PENNY_BUN);
+                output.accept(RegisterBlocks.CHARRED_LOG);
 
             })
             .build();

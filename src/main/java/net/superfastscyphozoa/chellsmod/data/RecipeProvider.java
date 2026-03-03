@@ -44,7 +44,7 @@ public class RecipeProvider extends FabricRecipeProvider {
                         .save(output, "charcoal_from_charred_log");
 
 
-                oneToOneConversionRecipe(Items.MAGENTA_DYE, RegisterBlocks.FIREWEED, "purple_dye", 2);
+                oneToOneConversionRecipe(Items.MAGENTA_DYE, RegisterBlocks.FIREWEED, "magenta_dye", 2);
 
                 //smelting and cooking
 

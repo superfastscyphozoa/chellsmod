@@ -8,18 +8,20 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.BonemealableBlock;
-import net.minecraft.world.level.block.VegetationBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+
+import java.util.Optional;
 
 public class ShroomBlock extends VegetationBlock implements BonemealableBlock {
     private static final VoxelShape SHAPE = Block.column(6.0, 0.0, 6.0);
 
     public ShroomBlock(Properties properties) {
-        super(properties);
+        super(properties.noCollision().randomTicks().instabreak().sound(SoundType.GRASS)
+                .hasPostProcess(Blocks::always).pushReaction(PushReaction.DESTROY));
     }
 
     @Override
@@ -47,7 +49,7 @@ public class ShroomBlock extends VegetationBlock implements BonemealableBlock {
 
     @Override
     public boolean isValidBonemealTarget(LevelReader levelReader, BlockPos blockPos, BlockState blockState) {
-        return true;
+        return BonemealableBlock.hasSpreadableNeighbourPos(levelReader, blockPos, blockState);
     }
 
     @Override
@@ -57,23 +59,12 @@ public class ShroomBlock extends VegetationBlock implements BonemealableBlock {
 
     @Override
     public void performBonemeal(ServerLevel serverLevel, RandomSource randomSource, BlockPos blockPos, BlockState blockState) {
-        this.growMushroom(serverLevel, randomSource, blockPos, blockState);
-    }
+        Optional<BlockPos> neighbourPos = BonemealableBlock.findSpreadableNeighbourPos(serverLevel, blockPos, blockState);
 
-    private void growMushroom(ServerLevel serverLevel, RandomSource randomSource, BlockPos blockPos, BlockState blockState){
-
-        BlockPos blockNearThis = blockPos.offset(randomSource.nextInt(3) - 1, randomSource.nextInt(2) - randomSource.nextInt(2), randomSource.nextInt(3) - 1);
-
-        for (int k = 0; k < 4; k++) {
-            if (serverLevel.isEmptyBlock(blockNearThis) && blockState.canSurvive(serverLevel, blockNearThis)) {
-                blockPos = blockNearThis;
+        if (neighbourPos.isPresent()) {
+            if (blockState.canSurvive(serverLevel, neighbourPos.get())){
+                serverLevel.setBlockAndUpdate(neighbourPos.get(), blockState);
             }
-
-            blockNearThis = blockPos.offset(randomSource.nextInt(3) - 1, randomSource.nextInt(2) - randomSource.nextInt(2), randomSource.nextInt(3) - 1);
-        }
-
-        if (serverLevel.isEmptyBlock(blockNearThis) && blockState.canSurvive(serverLevel, blockNearThis)) {
-            serverLevel.setBlock(blockNearThis, blockState, 2);
         }
     }
 }
