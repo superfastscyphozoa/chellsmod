@@ -8,8 +8,10 @@ import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
+import net.superfastscyphozoa.chellsmod.registry.RegisterBlocks;
 import net.superfastscyphozoa.chellsmod.registry.RegisterItems;
 
 import java.util.concurrent.CompletableFuture;
@@ -35,11 +37,14 @@ public class RecipeProvider extends FabricRecipeProvider {
 //                        .unlockedBy(getHasName(Items.EXAMPLE), has(Items.EXAMPLE))
 //                        .save(output, "example_recipe");
 
-//                shapeless(RecipeCategory.MISC, Items.SLIME_BALL, 1)
-//                        .requires(RegisterItems.MAGGOT_ITEM)
-//                        .group("slime_ball")
-//                        .unlockedBy(getHasName(RegisterItems.MAGGOT_ITEM), has(RegisterItems.MAGGOT_ITEM))
-//                        .save(output, "slime_ball_from_maggot");
+                shapeless(RecipeCategory.MISC, Items.CHARCOAL, 4)
+                        .requires(RegisterBlocks.CHARRED_LOG)
+                        .group("charcoal")
+                        .unlockedBy(getHasName(RegisterBlocks.CHARRED_LOG), has(RegisterBlocks.CHARRED_LOG))
+                        .save(output, "charcoal_from_charred_log");
+
+
+                oneToOneConversionRecipe(Items.MAGENTA_DYE, RegisterBlocks.FIREWEED, "purple_dye", 2);
 
                 //smelting and cooking
 

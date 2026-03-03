@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "chellsmod:block/tall_fireweed_top"
+  }
+}

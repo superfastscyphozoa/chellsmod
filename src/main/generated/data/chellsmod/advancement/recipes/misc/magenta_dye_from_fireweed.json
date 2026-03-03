@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_fireweed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "chellsmod:fireweed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "chellsmod:magenta_dye_from_fireweed"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_fireweed"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "chellsmod:magenta_dye_from_fireweed"
+    ]
+  }
+}

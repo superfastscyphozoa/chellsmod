@@ -1,5 +1,8 @@
 {
+  "block.chellsmod.charred_log": "Charred Log",
   "block.chellsmod.example_block": "Test Block",
+  "block.chellsmod.fireweed": "Fireweed",
+  "block.chellsmod.penny_bun": "Penny Bun",
   "block.chellsmod.seeding_dandelion": "Seeding Dandelion",
   "death.attack.maggot": "%1$s was parasitized by a maggot",
   "death.attack.maggot.player": "%1$s was parasitized by %2$s's maggot",

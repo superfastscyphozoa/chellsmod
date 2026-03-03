@@ -30,7 +30,11 @@ public class ItemTagProvider extends FabricTagProvider.ItemTagProvider {
     protected void addTags(HolderLookup.Provider wrapperLookup) {
 
         valueLookupBuilder(ItemTags.FLOWERS)
-                .add(RegisterBlocks.SEEDING_DANDELION.asItem());
+                .add(RegisterBlocks.SEEDING_DANDELION.asItem())
+                .add(RegisterBlocks.FIREWEED.asItem());
+
+        valueLookupBuilder(ItemTags.LOGS_THAT_BURN)
+                .add(RegisterBlocks.CHARRED_LOG.asItem());
 
         valueLookupBuilder(FLY_FOOD)
                 .add(Items.ROTTEN_FLESH)

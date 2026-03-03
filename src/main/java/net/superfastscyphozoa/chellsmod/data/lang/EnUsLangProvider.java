@@ -33,17 +33,18 @@ public class EnUsLangProvider extends FabricLanguageProvider {
         //-----------
 
         translationBuilder.add(RegisterItems.FLY_SPAWN_EGG, "Fly Spawn Egg");
-
         translationBuilder.add(RegisterItems.FLY_MEAT, "Fly Meat");
         translationBuilder.add(RegisterItems.COOKED_FLY_MEAT, "Cooked Fly Meat");
-
         translationBuilder.add(RegisterItems.FLY_EGG_CLUSTER, "Fly Egg Cluster");
         translationBuilder.add(RegisterItems.MAGGOT_ITEM, "Maggot");
 
         //-----------
 
         translationBuilder.add(RegisterBlocks.EXAMPLE_BLOCK, "Test Block");
+        translationBuilder.add(RegisterBlocks.FIREWEED, "Fireweed");
         translationBuilder.add(RegisterBlocks.SEEDING_DANDELION, "Seeding Dandelion");
+        translationBuilder.add(RegisterBlocks.CHARRED_LOG, "Charred Log");
+        translationBuilder.add(RegisterBlocks.PENNY_BUN, "Penny Bun");
 
         //-----------
 

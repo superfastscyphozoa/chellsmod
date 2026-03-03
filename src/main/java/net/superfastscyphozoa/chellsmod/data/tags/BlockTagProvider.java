@@ -22,6 +22,13 @@ public class BlockTagProvider extends FabricTagProvider.BlockTagProvider {
     @Override
     protected void addTags(HolderLookup.Provider provider) {
         valueLookupBuilder(BlockTags.FLOWERS)
-                .add(RegisterBlocks.SEEDING_DANDELION);
+                .add(RegisterBlocks.SEEDING_DANDELION)
+                .add(RegisterBlocks.FIREWEED);
+
+        valueLookupBuilder(BlockTags.OVERWORLD_NATURAL_LOGS)
+                .add(RegisterBlocks.CHARRED_LOG);
+
+        valueLookupBuilder(BlockTags.LOGS_THAT_BURN)
+                .add(RegisterBlocks.CHARRED_LOG);
     }
 }

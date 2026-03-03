@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "charcoal",
+  "ingredients": [
+    "chellsmod:charred_log"
+  ],
+  "result": {
+    "count": 4,
+    "id": "minecraft:charcoal"
+  }
+}

@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.model.ModelTemplates;
+import net.minecraft.client.data.models.model.TexturedModel;
 import net.superfastscyphozoa.chellsmod.registry.RegisterBlocks;
 import net.superfastscyphozoa.chellsmod.registry.RegisterItems;
 
@@ -18,9 +19,11 @@ public class ModelProvider extends FabricModelProvider {
 
         blockStateModelGenerator.createTrivialCube(RegisterBlocks.EXAMPLE_BLOCK);
 
-        //blockStateModelGenerator.createCrossBlockWithDefaultItem(RegisterBlocks.SEEDING_DANDELION, BlockModelGenerators.PlantType.NOT_TINTED);
+        blockStateModelGenerator.createRotatedPillarWithHorizontalVariant(RegisterBlocks.CHARRED_LOG, TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
 
-//        blockStateModelGenerator.createTrivialBlock(RegisterBlocks.EXAMPLE, TexturedModel.COLUMN_ALT);
+        blockStateModelGenerator.createCrossBlockWithDefaultItem(RegisterBlocks.PENNY_BUN, BlockModelGenerators.PlantType.NOT_TINTED);
+
+//        blockStateModelGenerator.createTrivialBlock(RegisterBlocks.CHARRED_LOG, TexturedModel.COLUMN_ALT);
 
 //        blockStateModelGenerator.family(RegisterBlocks.EXAMPLE_BLOCK)
 //                .stairs(RegisterBlocks.EXAMPLE_STAIRS)

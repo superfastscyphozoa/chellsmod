@@ -18,6 +18,8 @@ public class ChellsmodClient implements ClientModInitializer {
         ClientParticles.initParticles();
 
         BlockRenderLayerMap.putBlock(RegisterBlocks.SEEDING_DANDELION, ChunkSectionLayer.CUTOUT);
+        BlockRenderLayerMap.putBlock(RegisterBlocks.FIREWEED, ChunkSectionLayer.CUTOUT);
+        BlockRenderLayerMap.putBlock(RegisterBlocks.PENNY_BUN, ChunkSectionLayer.CUTOUT);
 
     }
 }

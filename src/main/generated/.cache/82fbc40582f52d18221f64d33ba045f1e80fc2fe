@@ -1,4 +1,5 @@
 // 1.21.11	-999999999-01-01T00:00:00	ChellsMod/Tags for minecraft:item
 fee5dbaa3293e21ba72b815fcb58ecbbdbe6fa0f data/chellsmod/tags/item/fly_food.json
-b1aa37b46ea0ef1292f7d2d8d4e570638e74c82e data/minecraft/tags/item/flowers.json
+e3f3a370e8b94e28443d05525117743465ce1e6d data/minecraft/tags/item/flowers.json
+3799001b840fddef0350ec7d10eb61ca9d3431fa data/minecraft/tags/item/logs_that_burn.json
 5924bca2c16aa87089144f50d1a8c19774b37040 data/minecraft/tags/item/wolf_food.json

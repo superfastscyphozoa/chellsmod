@@ -1,2 +1,4 @@
 // 1.21.11	-999999999-01-01T00:00:00	ChellsMod/Tags for minecraft:block
-b1aa37b46ea0ef1292f7d2d8d4e570638e74c82e data/minecraft/tags/block/flowers.json
+e3f3a370e8b94e28443d05525117743465ce1e6d data/minecraft/tags/block/flowers.json
+3799001b840fddef0350ec7d10eb61ca9d3431fa data/minecraft/tags/block/logs_that_burn.json
+3799001b840fddef0350ec7d10eb61ca9d3431fa data/minecraft/tags/block/overworld_natural_logs.json

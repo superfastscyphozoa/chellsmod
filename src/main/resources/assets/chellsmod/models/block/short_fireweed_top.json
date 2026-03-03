@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "chellsmod:block/short_fireweed_top"
+  }
+}

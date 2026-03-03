@@ -12,19 +12,32 @@ import net.superfastscyphozoa.chellsmod.Chellsmod;
 
 public class RegisterItemGroups {
 
-    public static final ResourceKey<CreativeModeTab> CHELLSMOD_ITEMS_TAB_KEY =
-            ResourceKey.create(
-                    BuiltInRegistries.CREATIVE_MODE_TAB.key(),
-                    Identifier.fromNamespaceAndPath(Chellsmod.MOD_ID, "chellsmod_items_tab")
-            );
-
     public static final ResourceKey<CreativeModeTab> CHELLSMOD_BLOCKS_TAB_KEY =
             ResourceKey.create(
                     BuiltInRegistries.CREATIVE_MODE_TAB.key(),
                     Identifier.fromNamespaceAndPath(Chellsmod.MOD_ID, "chellsmod_blocks_tab")
             );
 
+    public static final ResourceKey<CreativeModeTab> CHELLSMOD_ITEMS_TAB_KEY =
+            ResourceKey.create(
+                    BuiltInRegistries.CREATIVE_MODE_TAB.key(),
+                    Identifier.fromNamespaceAndPath(Chellsmod.MOD_ID, "chellsmod_items_tab")
+            );
+
     //------------------------------------------------
+
+    public static final CreativeModeTab CHELLSMOD_BLOCKS_TAB = FabricItemGroup.builder()
+            .icon(() -> new ItemStack(RegisterBlocks.CHARRED_LOG))
+            .title(Component.translatable("itemGroup.chellsmod.blocks"))
+            .displayItems((params, output) -> {
+
+                output.accept(RegisterBlocks.SEEDING_DANDELION);
+                output.accept(RegisterBlocks.FIREWEED);
+                output.accept(RegisterBlocks.CHARRED_LOG);
+                output.accept(RegisterBlocks.PENNY_BUN);
+
+            })
+            .build();
 
     public static final CreativeModeTab CHELLSMOD_ITEMS_TAB = FabricItemGroup.builder()
             .icon(() -> new ItemStack(RegisterItems.FLY_MEAT))
@@ -43,22 +56,12 @@ public class RegisterItemGroups {
             })
             .build();
 
-    public static final CreativeModeTab CHELLSMOD_BLOCKS_TAB = FabricItemGroup.builder()
-            .icon(() -> new ItemStack(RegisterBlocks.EXAMPLE_BLOCK))
-            .title(Component.translatable("itemGroup.chellsmod.blocks"))
-            .displayItems((params, output) -> {
-
-                output.accept(RegisterBlocks.SEEDING_DANDELION);
-
-            })
-            .build();
-
     //------------------------------------------------
 
     public static void initChellsmodItemGroups() {
         Chellsmod.LOGGER.info("registering " + Chellsmod.MOD_ID + " item groups!");
 
-        Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, CHELLSMOD_ITEMS_TAB_KEY, CHELLSMOD_ITEMS_TAB);
         Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, CHELLSMOD_BLOCKS_TAB_KEY, CHELLSMOD_BLOCKS_TAB);
+        Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, CHELLSMOD_ITEMS_TAB_KEY, CHELLSMOD_ITEMS_TAB);
     }
 }

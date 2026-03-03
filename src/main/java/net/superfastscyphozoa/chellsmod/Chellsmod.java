@@ -27,7 +27,7 @@ public class Chellsmod implements ModInitializer {
 
         DamageTypeUtils.initChellsmodDamageTypes();
 
-        ChellsmodWorldgen.modifyBiomes();
+        ChellsmodWorldgen.generateAndModifyFeatures();
 
         Chellsmod.LOGGER.info("Hi! Love ya <3");
     }
