@@ -1,4 +1,6 @@
 // 1.21.11	-999999999-01-01T00:00:00	ChellsMod/Block Loot Tables
+c8d60070483e67305eef6709a6a0affb2f9f7936 data/chellsmod/loot_table/blocks/aloe.json
+1b340f6a5ff1099e15a1927302faeac53b721acf data/chellsmod/loot_table/blocks/blooming_aloe.json
 92cda840db75c84534eaeaacafee4e3ff41970f3 data/chellsmod/loot_table/blocks/charred_log.json
 d823854cb3d4a763747175c527004258256fed4e data/chellsmod/loot_table/blocks/example_block.json
 61d380f5c54799e77c152cf2c11ea309533df28c data/chellsmod/loot_table/blocks/fireweed.json

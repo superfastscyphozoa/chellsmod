@@ -41,10 +41,15 @@ public class EnUsLangProvider extends FabricLanguageProvider {
         //-----------
 
         translationBuilder.add(RegisterBlocks.EXAMPLE_BLOCK, "Test Block");
-        translationBuilder.add(RegisterBlocks.FIREWEED, "Fireweed");
+
         translationBuilder.add(RegisterBlocks.SEEDING_DANDELION, "Seeding Dandelion");
-        translationBuilder.add(RegisterBlocks.CHARRED_LOG, "Charred Log");
+
+        translationBuilder.add(RegisterBlocks.FIREWEED, "Fireweed");
         translationBuilder.add(RegisterBlocks.PENNY_BUN, "Penny Bun");
+        translationBuilder.add(RegisterBlocks.CHARRED_LOG, "Charred Log");
+
+        translationBuilder.add(RegisterBlocks.ALOE, "Aloe");
+        translationBuilder.add(RegisterBlocks.BLOOMING_ALOE, "Blooming Aloe");
 
         //-----------
 

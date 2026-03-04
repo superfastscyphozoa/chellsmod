@@ -35,6 +35,8 @@ public class RegisterItemGroups {
                 output.accept(RegisterBlocks.FIREWEED);
                 output.accept(RegisterBlocks.PENNY_BUN);
                 output.accept(RegisterBlocks.CHARRED_LOG);
+                output.accept(RegisterBlocks.ALOE);
+                output.accept(RegisterBlocks.BLOOMING_ALOE);
 
             })
             .build();

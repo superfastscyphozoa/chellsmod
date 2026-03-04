@@ -17,8 +17,12 @@ public class BlockLootTableProvider extends FabricBlockLootTableProvider {
     @Override
     public void generate() {
         dropSelf(RegisterBlocks.EXAMPLE_BLOCK);
+
         dropSelf(RegisterBlocks.CHARRED_LOG);
         dropSelf(RegisterBlocks.PENNY_BUN);
         add(RegisterBlocks.FIREWEED, block -> this.createSinglePropConditionTable(block, DoublePlantBlock.HALF, DoubleBlockHalf.LOWER));
+
+        add(RegisterBlocks.ALOE, block -> this.createSinglePropConditionTable(block, DoublePlantBlock.HALF, DoubleBlockHalf.LOWER));
+        add(RegisterBlocks.BLOOMING_ALOE, block -> this.createSinglePropConditionTable(block, DoublePlantBlock.HALF, DoubleBlockHalf.LOWER));
     }
 }

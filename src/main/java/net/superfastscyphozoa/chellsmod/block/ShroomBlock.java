@@ -17,6 +17,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import java.util.Optional;
 
 public class ShroomBlock extends VegetationBlock implements BonemealableBlock {
+    public static final MapCodec<ShroomBlock> CODEC = simpleCodec(ShroomBlock::new);
     private static final VoxelShape SHAPE = Block.column(6.0, 0.0, 6.0);
 
     public ShroomBlock(Properties properties) {
@@ -25,7 +26,7 @@ public class ShroomBlock extends VegetationBlock implements BonemealableBlock {
     }
 
     @Override
-    protected MapCodec<? extends VegetationBlock> codec() {return null;}
+    protected MapCodec<? extends VegetationBlock> codec() {return CODEC;}
 
     @Override
     protected VoxelShape getShape(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, CollisionContext collisionContext) {

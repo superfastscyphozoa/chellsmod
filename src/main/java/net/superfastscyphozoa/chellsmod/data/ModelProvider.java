@@ -23,6 +23,9 @@ public class ModelProvider extends FabricModelProvider {
 
         blockStateModelGenerator.createCrossBlockWithDefaultItem(RegisterBlocks.PENNY_BUN, BlockModelGenerators.PlantType.NOT_TINTED);
 
+        blockStateModelGenerator.createCrossBlockWithDefaultItem(RegisterBlocks.ALOE, BlockModelGenerators.PlantType.NOT_TINTED);
+        blockStateModelGenerator.createDoublePlantWithDefaultItem(RegisterBlocks.BLOOMING_ALOE, BlockModelGenerators.PlantType.NOT_TINTED);
+
 //        blockStateModelGenerator.createTrivialBlock(RegisterBlocks.CHARRED_LOG, TexturedModel.COLUMN_ALT);
 
 //        blockStateModelGenerator.family(RegisterBlocks.EXAMPLE_BLOCK)

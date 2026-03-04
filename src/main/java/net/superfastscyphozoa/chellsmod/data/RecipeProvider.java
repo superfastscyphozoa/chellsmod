@@ -45,6 +45,7 @@ public class RecipeProvider extends FabricRecipeProvider {
 
 
                 oneToOneConversionRecipe(Items.MAGENTA_DYE, RegisterBlocks.FIREWEED, "magenta_dye", 2);
+                oneToOneConversionRecipe(Items.ORANGE_DYE, RegisterBlocks.BLOOMING_ALOE, "orange_dye", 2);
 
                 //smelting and cooking
 

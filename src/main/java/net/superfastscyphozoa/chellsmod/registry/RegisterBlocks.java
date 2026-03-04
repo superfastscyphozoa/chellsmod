@@ -17,6 +17,7 @@ import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.superfastscyphozoa.chellsmod.Chellsmod;
+import net.superfastscyphozoa.chellsmod.block.AloeBlock;
 import net.superfastscyphozoa.chellsmod.block.ShroomBlock;
 import net.superfastscyphozoa.chellsmod.block.SeedingDandelionBlock;
 
@@ -37,11 +38,8 @@ public class RegisterBlocks {
             "charred_log",
             RotatedPillarBlock::new,
             BlockBehaviour.Properties.of()
-                    .mapColor(MapColor.COLOR_BLACK)
-                    .instrument(NoteBlockInstrument.BASS)
-                    .strength(2.0F)
-                    .sound(SoundType.WOOD)
-                    .ignitedByLava(),
+                    .mapColor(MapColor.COLOR_BLACK).instrument(NoteBlockInstrument.BASS)
+                    .strength(2.0F).sound(SoundType.WOOD).ignitedByLava(),
             true
     );
 
@@ -49,13 +47,8 @@ public class RegisterBlocks {
             "fireweed",
             TallFlowerBlock::new,
             BlockBehaviour.Properties.of()
-                    .mapColor(MapColor.COLOR_PURPLE)
-                    .noCollision()
-                    .instabreak()
-                    .sound(SoundType.GRASS)
-                    .offsetType(BlockBehaviour.OffsetType.XYZ)
-                    .ignitedByLava()
-                    .pushReaction(PushReaction.DESTROY),
+                    .mapColor(MapColor.COLOR_PURPLE).noCollision().instabreak().sound(SoundType.GRASS)
+                    .offsetType(BlockBehaviour.OffsetType.XYZ).ignitedByLava().pushReaction(PushReaction.DESTROY),
             true
     );
 
@@ -67,15 +60,30 @@ public class RegisterBlocks {
             true
     );
 
+    public static final Block ALOE = registerBlock(
+            "aloe",
+            properties -> new AloeBlock(properties, false),
+            BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.PLANT).noCollision().instabreak()
+                    .offsetType(BlockBehaviour.OffsetType.XZ).sound(SoundType.GRASS).pushReaction(PushReaction.DESTROY),
+            true
+    );
+
+    public static final Block BLOOMING_ALOE = registerBlock(
+            "blooming_aloe",
+            properties -> new AloeBlock(properties, true),
+            BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.PLANT).noCollision().instabreak()
+                    .offsetType(BlockBehaviour.OffsetType.XZ).sound(SoundType.GRASS).pushReaction(PushReaction.DESTROY),
+            true
+    );
+
     public static final Block SEEDING_DANDELION = registerBlock(
             "seeding_dandelion",
             properties -> new SeedingDandelionBlock(MobEffects.SATURATION, 0.35F, properties),
             BlockBehaviour.Properties.of()
-                    .mapColor(MapColor.PLANT)
-                    .noCollision()
-                    .instabreak()
-                    .sound(SoundType.GRASS)
-                    .pushReaction(PushReaction.DESTROY),
+                    .mapColor(MapColor.PLANT).noCollision().instabreak()
+                    .sound(SoundType.GRASS).pushReaction(PushReaction.DESTROY),
             true
     );
 
