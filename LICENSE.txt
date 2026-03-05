@@ -19,3 +19,16 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
+
+----------------------------
+
+Chells epic license additons:
+
+(1) - No individuals are allowed to use any of my textures, models, or animations
+for anything, unless you get explicit permission from me.
+
+(2) - Any individual is fully allowed to use any of my code for (anything you want)-[*1], 
+without credit required.
+[*1] - (Anything, EXCEPT FOR AI! IF YOU USE MY CODE FOR AI, YOU GIVE ME PERMISSION TO END YOUR LIFE!)
+
+(3) - Any indiviual reading this must have a lovely day.
