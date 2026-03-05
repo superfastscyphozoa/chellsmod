@@ -6,8 +6,8 @@ import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -17,7 +17,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
-import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.superfastscyphozoa.chellsmod.registry.RegisterBlocks;
@@ -54,7 +53,7 @@ public class AloeBlock extends DoublePlantBlock implements BonemealableBlock {
 
     @Override
     public boolean isValidBonemealTarget(LevelReader levelReader, BlockPos blockPos, BlockState blockState) {
-        return true;//BonemealableBlock.hasSpreadableNeighbourPos(levelReader, blockPos, blockState);
+        return canBonemealAloe(levelReader, blockPos, blockState);
     }
 
     @Override
@@ -64,6 +63,10 @@ public class AloeBlock extends DoublePlantBlock implements BonemealableBlock {
 
     @Override
     public void performBonemeal(ServerLevel serverLevel, RandomSource randomSource, BlockPos blockPos, BlockState blockState) {
+       growAloe(serverLevel, blockPos, blockState);
+    }
+
+    private void growAloe(ServerLevel serverLevel, BlockPos blockPos, BlockState blockState){
         if (!blockState.getValue(BLOOMING)) {
             if (serverLevel.getBlockState(blockPos.above()).isAir()) {
 
@@ -88,6 +91,20 @@ public class AloeBlock extends DoublePlantBlock implements BonemealableBlock {
         }
     }
 
+    private boolean canBonemealAloe(LevelReader levelReader, BlockPos blockPos, BlockState blockState){
+        if (!blockState.getValue(BLOOMING)) {
+            if (levelReader.getBlockState(blockPos.above()).isAir()){return true;}
+            else {return BonemealableBlock.hasSpreadableNeighbourPos(levelReader, blockPos, blockState);}
+        } else {
+            BlockPos blockPos2 = blockPos; BlockState blockState2 = blockState;
+
+            if (blockState.getValue(HALF).equals(DoubleBlockHalf.UPPER))
+            {blockPos2 = blockPos.below(); blockState2 = levelReader.getBlockState(blockPos2);}
+
+            return BonemealableBlock.hasSpreadableNeighbourPos(levelReader, blockPos2, blockState2);
+        }
+    }
+
     //------------------
 
     @Override
@@ -100,6 +117,15 @@ public class AloeBlock extends DoublePlantBlock implements BonemealableBlock {
             return !blockState.canSurvive(levelReader, blockPos)
                     ? Blocks.AIR.defaultBlockState()
                     : blockState;
+        }
+    }
+
+    @Override
+    public @Nullable BlockState getStateForPlacement(BlockPlaceContext blockPlaceContext) {
+        if (blockPlaceContext.getItemInHand().is(RegisterBlocks.BLOOMING_ALOE.asItem())) {
+            return super.getStateForPlacement(blockPlaceContext);
+        } else {
+            return this.defaultBlockState();
         }
     }
 
